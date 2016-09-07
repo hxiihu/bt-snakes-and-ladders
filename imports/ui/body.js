@@ -9,7 +9,6 @@ import './body.html';
 import './player.html';
 import './map.html';
 
-
 // initialize sessional variable
 Session.setDefault("moves", 0);
 Session.setDefault("who", "Who");
@@ -21,11 +20,7 @@ Session.setDefault("p2_score", 0);
 Session.setDefault("p3_score", 0);
 Session.setDefault("p4_score", 0);
 
-Session.setDefault("p1Background", "");
-Session.setDefault("p2Background", "");
-Session.setDefault("p3Background", "");
-Session.setDefault("p4Background", "");
-
+Session.setDefault("status", "");
 
 var number_of_player = 4;
 var scores = new Array(number_of_player);
@@ -109,6 +104,8 @@ for(i = 0; i < giant_snake.length; i ++) {
 	grids[giant_snake[i] - 1].value = 0;
 }
 
+
+
 //initialization
 Template.body.onCreated(function bodyOnCreated() {
 	//subscribe to server's publication
@@ -125,6 +122,8 @@ Template.body.onCreated(function bodyOnCreated() {
 	Meteor.call('players.update-active', first_turn);
 
 });
+
+
 
 Template.body.helpers({
 
@@ -158,8 +157,18 @@ Template.body.helpers({
 		return Session.get("has-winner");
 	},
 
+	hasNoWinner() {
+		return !Session.get("has-winner");
+	},
+
+	status() {
+		return Session.get("status");
+	},
+
 
 });
+
+
 
 
 Template.body.events({
@@ -170,8 +179,13 @@ Template.body.events({
 		var ran = Random.choice([1, 2, 3, 4, 5, 6]);
 		//final score to be updated in database
 		var s = this.score + ran;//initial
+		var msg = "Detailed Status: ";
 
+		//initialize status msg
+		Session.set("status", msg);
 		console.log( this.name + " Rolled: " + ran.toString());
+		msg = msg + this.name + " Rolled the Die of " + ran.toString() + "; ";
+
 
 		//var p_back = "p" + this._id.toString() + "Background";
 		//find current active user name
@@ -197,7 +211,8 @@ Template.body.events({
 			//loop: active users -1 if got identical scores
 			while (scores.indexOf(s) !== -1) {
 				s --;
-				console.log("Identical score, minus 1 score for active player.");
+				console.log("Identical score, minus 1 score for " + this.name + "; ");
+				msg = msg + "Identical score, minus 1 score for " + this.name + "; ";
 			}
 
 			//possible to reach -1 score; handle negativity exception
@@ -206,14 +221,40 @@ Template.body.events({
 			} // back to start point
 
 			//recursively check if step on any snake or ladder
-			console.log("grids[48].position = " + grids[48].position);
-			console.log("grids[48].value = " + grids[48].value);
+			//console.log("grids[48].position = " + grids[48].position);
+			//console.log("grids[48].value = " + grids[48].value);
 			console.log("before snake and ladder check: s = " + s.toString());
 			if (s !== 0) {
 				while(grids[s - 1].position !== grids[s - 1].value) {
 					s = grids[s - 1].value; // update final score as snake/ladder value
 					//msg on if stand on snae or ladder
 					console.log("Stand on Snake/Ladder");
+					msg = msg + this.name + " stands on a Snake/Ladder; ";
+					/*
+					if(two_step_ladder.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a two step ladder. Jump two step forward! ";
+					}
+					else if (three_step_ladder.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a three step ladder. Jump three step forward! ";
+					}
+					else if (four_step_ladder.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a four step ladder. Jump four step forward! ";
+					}
+					else if (giant_ladder.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a giant step ladder. Jump a Giant step forward! ";
+					}
+					else if(two_step_snake.indexOf(s) >= 0) {
+						msg = msg + this.name + " stands on a two step snake. Roll two step back! ";
+					}
+					else if (three_step_snake.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a three step snake. Roll three step back! ";
+					}
+					else if (four_step_snake.indexOf(s) >= 0){
+						msg = msg + this.name + " stands on a four step snake. Roll four step back! ";
+					}
+					else{
+						msg = msg + this.name + " stands on a giant step snake. Roll a Giant step back! ";
+					}*/
 
 					//check if identica scores
 
@@ -221,19 +262,20 @@ Template.body.events({
 					while (scores.indexOf(s) !== -1) {
 						s --;
 						console.log("Identical score, minus 1 score for active player.");
+						msg = msg + "Identical score, minus 1 score for " + this.name + "; ";
 					}
 					if (s < 0) s = 0; // handle negative exception
-				}
+				}//end while
 			}
 
 			console.log("after snake and ladder check: s = " + s.toString());
-
 
 			//update session array
 			Session.set( "p" + this._id.toString() + "_score" ,s);
 
 			scores = [Session.get("p1_score"), Session.get("p2_score"), Session.get("p3_score"), Session.get("p4_score")];
-			console.log("After session update: " + scores + "\n");
+			console.log("After session update: " + scores + ";");
+			Session.set("status", msg);
 
 			//update score
 			Meteor.call('players.update', this._id, s);// s is new score
@@ -246,10 +288,6 @@ Template.body.events({
 
 			//turn on another user's 'active'
 			Meteor.call('players.update-active', this._id);
-
-
-
-
 
 
 

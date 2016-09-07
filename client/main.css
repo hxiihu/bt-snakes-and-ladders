@@ -47,6 +47,14 @@
       display: none;
     }
 
+    .status {
+      
+      text-align: center;
+      padding-top: 15px;
+      display: none;
+
+    }
+
 
     /* header and player info */
     .steps-wraper h4 {

@@ -4,7 +4,9 @@
 
 			<div class = "header-container">
 				<div class = 'steps-wraper'>
-					<h4 class="step">{{who}} rolled <span class='step-number'>{{move}}</span> step{{#if moveIsOne}}s{{/if}} forward</h4>
+					
+					<h4 class="step">{{who}} rolled <span class='step-number'>{{move}}</span> step{{#if moveIsOne}}s{{/if}} forward on the die</h4>
+					
 				</div>
 
 				<div class="player-section">
@@ -18,6 +20,12 @@
 			<div class="separator">
 				<div class="winner {{#if hasWinner}}active{{/if}}">
 					<h4 class="step-wrapper">Congratulations to <strong>{{winner}}</strong> on winning the session!</h4>
+				</div>
+				<div class="status {{#if hasNoWinner}}active{{/if}}">
+					<h4 class="step-wrapper">
+						<!--Congratulations to <strong>{{winner}}</strong> on winning the session!-->
+						{{status}}
+					</h4>
 				</div>
 			</div>
 
