@@ -178,6 +178,7 @@ Template.body.events({
 		//generate a random score ranging from 1 - 6
 		var ran = Random.choice([1, 2, 3, 4, 5, 6]);
 		//final score to be updated in database
+		var origin_s = this.score;
 		var s = this.score + ran;//initial
 		var msg = "Detailed Status: ";
 
@@ -191,10 +192,6 @@ Template.body.events({
 		//find current active user name
 		Session.set("who", this.name);
 		Session.set("moves", ran);
-
-		//console.log("p_back " + p_back);
-		//Session.set(p_back, this.background);
-		//console.log(p_back+ " " + this.name + " " + this.background);
 
 		//check if any winner 
 		if (this.score + ran < 100) { // no winner
@@ -221,8 +218,6 @@ Template.body.events({
 			} // back to start point
 
 			//recursively check if step on any snake or ladder
-			//console.log("grids[48].position = " + grids[48].position);
-			//console.log("grids[48].value = " + grids[48].value);
 			console.log("before snake and ladder check: s = " + s.toString());
 			if (s !== 0) {
 				while(grids[s - 1].position !== grids[s - 1].value) {
@@ -230,33 +225,6 @@ Template.body.events({
 					//msg on if stand on snae or ladder
 					console.log("Stand on Snake/Ladder");
 					msg = msg + this.name + " stands on a Snake/Ladder; ";
-					/*
-					if(two_step_ladder.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a two step ladder. Jump two step forward! ";
-					}
-					else if (three_step_ladder.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a three step ladder. Jump three step forward! ";
-					}
-					else if (four_step_ladder.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a four step ladder. Jump four step forward! ";
-					}
-					else if (giant_ladder.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a giant step ladder. Jump a Giant step forward! ";
-					}
-					else if(two_step_snake.indexOf(s) >= 0) {
-						msg = msg + this.name + " stands on a two step snake. Roll two step back! ";
-					}
-					else if (three_step_snake.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a three step snake. Roll three step back! ";
-					}
-					else if (four_step_snake.indexOf(s) >= 0){
-						msg = msg + this.name + " stands on a four step snake. Roll four step back! ";
-					}
-					else{
-						msg = msg + this.name + " stands on a giant step snake. Roll a Giant step back! ";
-					}*/
-
-					//check if identica scores
 
 					scores = [Session.get("p1_score"), Session.get("p2_score"), Session.get("p3_score"), Session.get("p4_score")];
 					while (scores.indexOf(s) !== -1) {
@@ -277,14 +245,12 @@ Template.body.events({
 			console.log("After session update: " + scores + ";");
 			Session.set("status", msg);
 
-			//update score
-			Meteor.call('players.update', this._id, s);// s is new score
-			
+			//update in map
+			$("#grid-"+s.toString()).addClass("current-position-p" + this._id.toString());
+			$("#grid-"+origin_s.toString()).removeClass("current-position-p" + this._id.toString());
 
-			//update a new attribute to grids[i]
-			//if s === 0?
-			//if (s !== 0)
-			//	grids[s - 1].p_back = this.background;
+			//update score
+			Meteor.call('players.update', this._id, s);
 
 			//turn on another user's 'active'
 			Meteor.call('players.update-active', this._id);

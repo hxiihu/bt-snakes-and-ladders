@@ -243,3 +243,20 @@
       background-size: 100%;
       background-repeat: no-repeat;
     }
+
+    .current-position-p1 {
+      border: 2px solid #998B52;
+    }
+
+    .current-position-p2 {
+      border: 2px solid #AECDAD;
+    }
+
+    .current-position-p3 {
+      border: 2px solid #353369;
+    }
+
+    .current-position-p4 {
+      border: 2px solid #AD869A;
+    }
+
