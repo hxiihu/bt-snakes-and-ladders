@@ -1,0 +1,93 @@
+
+<template name="map_row_one">
+<!-- here goes the snake and ladder map -->
+	<div class="row_one_wrapper">
+		<div class = "row_one_container">
+			{{#each num in grid}}
+				<div class="grid grid_left two-step-ladder-{{num.isTwoLadder}} three-step-ladder-{{num.isThreeLadder}} four-step-ladder-{{num.isFourLadder}} giant-ladder-{{num.isGiantLadder}} two-step-snake-{{num.isTwoSnake}} three-step-snake-{{num.isThreeSnake}} four-step-snake-{{num.isFourSnake}} giant-snake-{{num.isGiantSnake}}" id="grid-{{num.position}}">
+					<div class="grid-index">{{num.position}}</div>
+					<div class="identity identity-in-map" style = "background: {{num.p1Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p2Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p3Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p4Background}}"></div>
+
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+
+<template name="map_row_two">
+	<div class="row_two_wrapper">
+		<div class = "row_two_container">
+			{{#each num in grid}}
+				<div class="grid grid_right two-step-ladder-{{num.isTwoLadder}} three-step-ladder-{{num.isThreeLadder}} four-step-ladder-{{num.isFourLadder}} giant-ladder-{{num.isGiantLadder}} two-step-snake-{{num.isTwoSnake}} three-step-snake-{{num.isThreeSnake}} four-step-snake-{{num.isFourSnake}} giant-snake-{{num.isGiantSnake}}" id="grid-{{num.position}}">
+					<div class="grid-index">{{num.position}}</div>
+					<div class="identity identity-in-map" style = "background: {{num.p1Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p2Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p3Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p4Background}}"></div>
+
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="map_row_three">
+	<div class="row_three_wrapper">
+		<div class = "row_three_container">
+			{{#each num in grid}}
+				<div class="grid grid_left two-step-ladder-{{num.isTwoLadder}} three-step-ladder-{{num.isThreeLadder}} four-step-ladder-{{num.isFourLadder}} giant-ladder-{{num.isGiantLadder}} two-step-snake-{{num.isTwoSnake}} three-step-snake-{{num.isThreeSnake}} four-step-snake-{{num.isFourSnake}} giant-snake-{{num.isGiantSnake}}" id="grid-{{num.position}}">
+					<div class="grid-index">{{num.position}}</div>
+					<div class="identity identity-in-map" style = "background: {{num.p1Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p2Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p3Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p4Background}}"></div>
+
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="map_row_four">
+	<div class="row_four_wrapper">
+		<div class = "row_four_container">
+			{{#each num in grid}}
+				<div class="grid grid_right two-step-ladder-{{num.isTwoLadder}} three-step-ladder-{{num.isThreeLadder}} four-step-ladder-{{num.isFourLadder}} giant-ladder-{{num.isGiantLadder}} two-step-snake-{{num.isTwoSnake}} three-step-snake-{{num.isThreeSnake}} four-step-snake-{{num.isFourSnake}} giant-snake-{{num.isGiantSnake}}" id="grid-{{num.position}}">
+					<div class="grid-index">{{num.position}}</div>
+					<div class="identity identity-in-map" style = "background: {{num.p1Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p2Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p3Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p4Background}}"></div>
+
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="map_row_five">
+	<div class="row_five_wrapper">
+		<div class = "row_five_container">
+			{{#each num in grid}}
+				<div class="grid grid_left two-step-ladder-{{num.isTwoLadder}} three-step-ladder-{{num.isThreeLadder}} four-step-ladder-{{num.isFourLadder}} giant-ladder-{{num.isGiantLadder}} two-step-snake-{{num.isTwoSnake}} three-step-snake-{{num.isThreeSnake}} four-step-snake-{{num.isFourSnake}} giant-snake-{{num.isGiantSnake}}" id="grid-{{num.position}}">
+					<div class="grid-index">{{num.position}}</div>
+					<div class="identity identity-in-map" style = "background: {{num.p1Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p2Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p3Background}}"></div>
+					<div class="identity identity-in-map" style = "background: {{num.p4Background}}"></div>
+
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+

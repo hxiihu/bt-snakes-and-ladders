@@ -1,0 +1,24 @@
+
+<template name='player'>
+
+	<div class = "player-container"><!-- in-turn player should be active and the rest should be deactived -->
+
+		<div class="player-info-wrapper {{#if active}} player-info-wrapper-active{{/if}} ">
+			<div class="portrait-image">
+				<img src="{{portrait}}">
+			</div>
+			<div class="txt-wrapper" style="color: {{background}}">
+				<div class="player-name"><div class="identity" style="background: {{background}}"></div><h4>{{name}}</h4></div>
+				<div class="player-score">{{score}}</div>
+			</div>
+		</div>
+
+		<div class="dice-section {{#if active}}active{{/if}}">
+			<div class="die-img">
+				<img src="https://lh3.googleusercontent.com/t7_NE-e-M6WANRnPwh9FYs7ZFthIWDicIhi2IgefiWDgjVNsD9X9Cum73oaDgL7Ux3UfDJAmZ6naRqiPxHKJmMgyeeD_KobAAmJp2asKrQMVlY9WffjDC3SM4g7uVut9Js5OkjY6UsiinmFalaQv3ubCws1DZ0fIzQyyS-PVywYXIo-BfRB6n7Cikyv4VzYgMWd3ygBYCV5epLGe39xR6LLZBlQ_V0gQLkvKRk9avt8mypYUFuE6G7Iy5xMtZKKqonnVaXdMDLGexwuo7aoNd0JJZ2LEXSeiGmjnUZ6qC6dI7oNrTCk4YzvPdij48DxETa5wbynlyLB18quMIMhci-tiLbq6ZfZJQUsqM9PcF9PILV3syC4BioPMyO2AlXJvE58_V9nv3ZTNoILQjuJPRIxJsboXcewRC3CJFsWt9j5Ie2hNX_IcAG7pxy7uwCuWx4Eo-5DoTFZ4pX8K05qrUbo2RY0U9ZzwUkGGoW3x1_WYlUIrgnjyezE5KbgpV4NLnWfXNNRUU2uy-Pjvcf_lIojpd01qO5uW-U-P-hr4vAM2VIpCsa-VeoM=w400-h300-p-k-nu" alt="Roll Die" class="roll-die">
+			</div>
+		</div>
+
+	</div>
+
+</template>

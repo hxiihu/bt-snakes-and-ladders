@@ -1,0 +1,240 @@
+    /* CSS declarations go here */
+
+    body {
+      font-family: sans-serif;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+     
+      padding: 0;
+      margin: 0;
+     
+      font-size: 14px;
+    }
+     
+    .container-outer {
+      position: absolute;
+      margin: 0;
+      min-height: 100%;
+      min-width: 100%;
+      background: url("https://www.skotcher.com/wall/4af4b5c854377f188d63217ca62d7739/black-star-trek.jpg");
+      
+      
+
+      background-size: 100%;
+
+    }
+
+    .container-inner {
+      width: 90%;
+      margin: auto;
+    }
+
+    .header-container {
+      margin: auto;
+      width: 100%;
+    }
+
+    .separator {
+      clear: both;
+      width: 100%;
+      height: 100px;
+      color: #650009;
+    }
+
+    .winner {
+      text-align: center;
+      padding-top: 15px;
+      display: none;
+    }
+
+
+    /* header and player info */
+    .steps-wraper h4 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #650009;
+      font-size: 600;
+    }
+
+    .step {
+      display: block;
+    }
+
+    .step-number {
+      color: red;
+      font-weight: bold;
+    }
+
+    .player-section {
+      margin: auto;
+    }
+
+    .player-container {
+      display: inline-block;
+      width: 23%;
+      float: left;
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+
+    .player-info-wrapper {
+      width: 80%;
+      margin: auto;
+      height: 55px;
+    }
+
+    .player-info-wrapper-active {
+      background: maroon;
+    }
+
+    .portrait-image img {
+      width: 50px;
+    }
+
+    .portrait-image {
+      float: left;
+    }
+
+    .txt-wrapper {
+      float: left;
+      margin-left: 1em;
+    }
+
+    .identity {
+      width: 20px;
+      height: 20px;
+      border: 1px black solid;
+    }
+
+    .identity-in-map {
+      height: 25%;
+      width: 25%;
+      float: left;
+      border: none;
+      border-radius: 50%;
+    }
+
+    .txt-wrapper h4 {
+      float: left;
+    }
+
+    .player-score {
+      font-size: 30px;
+    }
+
+    .dice-section {
+      display: none;
+    }
+
+    .active{
+      display: block;
+
+    }
+
+    .dice-section img {
+      width: 50%;
+    }
+
+    .dice-section .die-img {
+      width: 80%;
+      clear: both;
+      margin-left: 10%;
+    }
+
+    .dice-section img:hover {
+      cursor: pointer;
+    }
+
+    /* Snake and Ladder Schema */
+    .snake-and-ladder-map-section {
+      clear: both;
+      width: 100%;
+      height: 300px;
+    }
+
+    .grid {
+      width: 4.8%;
+      height: 60px;
+      border: 1px solid black;
+      margin: 0;
+      font-size: small;
+      color: lightgrey;
+    }
+
+    .grid:hover {
+      border: 2px solid maroon;
+    }
+
+    .grid_left {
+      float: left;
+    }
+
+    .grid_right {
+      float: right;
+    }
+
+    /* snake and ladder decoration */
+    .two-step-snake-true {
+      background: url("http://cdn4.dualshockers.com/wp-content/uploads/2013/12/5a3fad69d901863a8e84bdfab28e95d61386705140.jpg");
+      background: url("https://lh3.googleusercontent.com/st5iOwZZEx_ZXp_oUyrpDMZhInGWzoXURJ32DPCeNOtlqO1ncI1tbTMR16lBNBXJUOxnR5elgxHHv5DTlyu4XB0qqNWgwSBPDM_eMSMx0RQfuHu6QfUGKx1ldJI4GBZNBPpGlIOF23vidJcRJFagRr7hAmL4akm_V6L4agVAjfgSjYB1ZoLoNkZWyQsrHnp6uma9wNLtN62LJuvLFOMiPS6_YIHARUoSRg1nhaCxBMhFP3jdsIt19DEr5wfsfpsCTrxENclUGgWO3-Mv3pLppA1tR65nMh8ROYpOnJXt3I4S018mC1iZAor4Y54FtSU8fUJqNa1aTvaur_Kdzq49o-pDvB3vpHLgKKJuJIZb7uVmwlg0y5sD9M2bv11ItXbOkVDHvm7hlqzglyKkBdSBt72HIMhYwslJ5TOG2UCIlBZESku-EEu1ujqX97F6PRhDhnge6jsPe7v_HSo8DwokICCUyeF-DZGtan8Eyo7UcviHQ5W2NUzPnkIrKoc6J1OpM0KVCB4KE9SEMUR2nHLumtkVOZDVq2pOZS2sN_Opaqx7qWurfOC-X8MdtduQGIJCZG607U7G=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .three-step-snake-true {
+      background: url("http://www.shipschematics.net/startrek/images/klingon/scout_ningtao.jpg");
+      background: url("https://lh3.googleusercontent.com/mRN4JazaZTBQXOmI-1lAyuwh06F8f_ta8K4tTectj04Sv_2qW65mJyfmkvIc2Gj6L29rM8eaFIOGIzmXxiISqHiOUPpVxnKCW6MHI0-Mqp5gIo2aPLlsySpjcKv3T2MH1-axaW2bnNfdcw91Dd7HTUEzRgRRCVzudgGKWbE0zURLYAoG1_3Tr3T7pnMZQWhGdwLHsppEM4I8tGN3ZJSmgCE674ymeY6YK8PHYkA8VPqyHqeI4HiENiMqxiWXLQlJ_PJTa3FJZ9Or0IfhbQx0wWsw-v7cS-GVxZdxoWlRjP5AyzqCU9YbVPsfvrAElhh6fWU77eL5p74r4RkYfY6z8eSH5qeXguAqt4japziZ1BnWZlTeJIHGN9zvugPTuaQPLdXzkmVdkSwH_Ye3ntDwtHjFbKNmv7ANpghIA36lEyO50_fpgHjLrlrz_wMLjcEPsXJIfYO1dEGSgCV_54Sg3XHN6jwx75NUpDilX6irVBIUWce4l6UoPMaOwJsR3jrhtOttDTPqAeVL9Cce73Jqm_-Zy0-ZjJ5DYrB3Jv29z-3800VQSB0vqO0nKnfjtDmSRARkhb3y=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .four-step-snake-true {
+      background: url("https://s-media-cache-ak0.pinimg.com/736x/e2/93/d7/e293d700fcb1673cf2635eb86f5af359.jpg");
+      background: url("https://lh3.googleusercontent.com/9Aqg-pkYZP1SZ1e7FxPGLG_YtLijr_qkqPHRDfp0Tp0UNiAz8cigUqmNdz0nFofznQvfQLxeMCX7faBeuvrP-3aNKIDmgdtHKiHFmMFx5fo0H1cs_1tF_pOQRtB2A9OsgQeaWQUrqWaxLGmbai46F1EzvEW6h9yF1AVIJDuKjHkr0sVc699uiuYc4DYooVeY5e8dRKdFYMZTSzce7ceyWklzDxfTUVb-uulWRHdLkIcie9_HWAMSmmkPZoDsDeE3iaKjBlGUR4Y8c9gsTkNcDoKkksR23wURwW3cV_T7MNPBEzOBt1pVhbtrejg5Hun_pIRA37ItdURgLsT8Cjr265ygK-Cb-UoGzEi4CrfHb1IhtgQgpvGeYx6dIG1K7Hh8RIksPxWpYMV8BjdLqgEYevFlvIGEkqmFNB-w8R-DcdAyyWftqHkOE6e1881zZeUADS0Bv89Qvg7cKKVBhqLUPS6dqqQAdJhqVCodSSh3is7tf5-cGEvYMhA3ZPl5U2AzJ401yVGCC0YckgCa2DVvZndLzThBvfqsP4BZ88hR3JhKaCClp9tJONNN1RjZKpNg-gfILm60=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .giant-snake-true {
+      background: url("http://www.nasa.gov/sites/default/files/cygx1_ill.jpg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+
+    .two-step-ladder-true {
+      background: url("https://lh3.googleusercontent.com/kCFzMrc3SrDn0Gr9D-uKrLARAsdMBnvlmzSjwaz1JemhpASM8S7HplVb4hwj3ZFj9PprtuAB1qTyvy_ERCePWsHtqWHTjfj3jB0GOVPYVAfNxI0XZ3Dnxnayx3AQ8VeG_Qyd6U3xFFSFNvD9Za-lI_U1pZ8HOUh1elkENoVBfdiQZsJKXE9JB3uRG-gUhTFHH5EDD9pd5tl0hscwQ_BgNmo7q64Rzw1NVPDu_GK3PxG6Nf52iVuIv8PV-RTIg01azieS0McCD_COfMQDZOuHrfhu8sfWzLsJW0cTDZBVQWof8Tz-693H2xuqsjjXCTFp-UhaxAsZLhDww_ootXVPqMG3DUqtHSGiFAATVFnIMOcLYeEA-7cKeD1d2mGmL9kcFBW2wQS8aUVIRZS7y_aHcaG21040EwcreE3E4k-rUzFCIi-_6P0JB2HysR7yCEPCYM7cviJEu8WrtLWOJMYBLnalCTFMgrI2K4IMwqQC8zkjoz7pBhl2dDwV5dSmFWgiIND62aosxVXFsk7nGzGgKS1Kmq4RCnVU2_7SgTGxsf-ALxpmljJmG_jn6Bi__KSp3oZ8pRhd=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .three-step-ladder-true {
+      background: url("http://vignette2.wikia.nocookie.net/memoryalpha/images/0/0b/Miri_Earth_remastered.jpg/revision/latest?cb=20110420040821&path-prefix=en");
+      background: url("https://lh3.googleusercontent.com/WIjY3HQVY3NLJ5_uv8ibWUMe19aJUzAyVC2kt-tBsajtGnP6tTS80b8sd-Ao55JQZn_aiSBzoUxIW34dBntbOQfeF9ezWOXx0sIptnGY7YyYrE3dd8Qi8XluZiL-sKsaj37siYaXSWFHQwN358uF5Vw57ICMmSu4f5jbWQWc2-i3XgUvtwc5301PBk4iS53po7hfQMTroLXJer0uAx_WKiVY6dJnscbCoEatMgR3lVs-xUXmEbh9N4Yp4wJqVQc4G39WMr6Q9Z8ysTCYpaILD9c4tQ92i7UWejIJ25vinfEaGwkE8Xs2mqPBrwr2IEg4O5xnoMQw7gSbF72Rf35RwfVkGRuRfHhepgJyNYB8d_RWISdWMzZrVq2GRICKGUEzdHwg0iscqnYTuoZNcGPUIZvNrWumm1A82GESxuaU9O7E8OUXrp9bpk2hzcM04-ri7ehtIhIEdUgL3O4itF129BAJHGq-ta67dsVGURnAVppkP6Z0xgiG_8qRwtXBjx4_IutT9TamEOcxp4UB3w8Yo0gXmSVG4SrM2ABLwLRkOBFTYiYwss-Fa0de2D8IdFuKVs4Ad_Dm=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .four-step-ladder-true {
+      background: url("https://i.ytimg.com/vi/jo3VrrKDMV8/maxresdefault.jpg");
+      background: url("https://lh3.googleusercontent.com/2ZlbDlt3DPoK0n4QInxGRzYxR2lRPVvZQlRDT1DhorIVglJyeoUOR46HWqCkjMKIdPEfCHKdeOx9OD2gIFif1k70OEpzMEOKZdeHoWyiToIjwkL_R_XR5Qy5wdCj_7_eZdUc7eyeCSCXXbPdtIe_1wRSvjOX51-DpE32o3ET7W_Gg_7pmD6VjSpCApExGI9XBYMdk7T4oV_gpTXA0vBTMJVswbXgLTA43qiaTp83dckdxIpOpWtI7KE6WNLHpMgS3qpLqP4penmhrKjWvQLpzP2GTnU-J0P-yAvY4q16MEuBddIoQEmsJgG4UC6XArAuvNfZfa3ZLeXn2kLUepvxCz--seUKjHdPjC-r9qqfp1bg4vD_EshGwAaPF8uiWcsipTTUdpxK_QpbgbwCt7mz-jJnH9YIpSpASeJlMQfqdM3fBXv5uP-6f7QmQ8MfKiDS3YmtItO5Bt2Kt04Rtj6lDl4jGdJpuD1ZCCdrJ593MxPdfgUd4IRJFS5hp9gMS95ap3GRN7wE74lwq67m0SUhNLD_wel9w03wfiVh0D0EqaqPGsMWmIcTvbGouHhuwQVpJp1dOm19=w400-h300-p-k-nu");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .giant-ladder-true {
+      background: url("http://vignette4.wikia.nocookie.net/memoryalpha/images/f/f1/Risa_in_2366.jpg/revision/latest?cb=20130628224909&path-prefix=en");
+      background: url('https://lh3.googleusercontent.com/BAsk42LD69wCfWU2eeSkjJdcA02LDAESVmSyHdzysNuUKPtnh-GLpvWATLPoHivAw6mUEhMsB8YvRQkf7o6TvF4UqTUGoZDOzGT9X7s-nlxzSsvJ1Ki82qRtFvyn9KHHioPyeNbBjN0k_au6D0G_sbn4u1g6wKaItma-I8I9vSts6pwnXP9qnN67G-PAxlMZjxywgGiK1qi1smhTqTnqLXxk0r741azOgysyFbJ3TpnVGyD6q5dxL80xCX5JX_cUzJtVTSDhs6QeWAxuhRAb5dkOpxFuDcE0TczzM_EKtyTGDN2IPYK8SanFIsSprOMj0F9CFny8w7OeQsWt05RuZogi53ktP2643Ri9AkGifsJXcKUF6PSoudXRvoB-Pd9378fk3EOOXL3cV6bMVMXzIs6Ma0ZPB6sjfOc513-qylMHsmRU_Y_dNi33zPFxXxv2vJuh018sZwkD-9hsXpHE4hhM9VH2H767213mzFkkPqRMHvkb5BGEsZLLcMod9Bu4xwQp-YKIsXa4NsVH9dOxOcrSOGtH1U14LEhtDzYtnsDNdh4IQAo6FLrJEd-fZN-5Fhqdu4XB=w400-h300-p-k-nu');
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+
+    #grid-100 {  
+      background: url("http://vignette2.wikia.nocookie.net/memoryalpha/images/4/4b/Star_Trek_Starfleet_Academy_Starship_Bridge_Simulator_SNES.jpg/revision/latest?cb=20120916182039&path-prefix=en");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }

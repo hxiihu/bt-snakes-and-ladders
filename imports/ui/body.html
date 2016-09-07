@@ -1,0 +1,50 @@
+<body>
+	<div class = "container-outer">
+		<div class = "container-inner">
+
+			<div class = "header-container">
+				<div class = 'steps-wraper'>
+					<h4 class="step">{{who}} rolled <span class='step-number'>{{move}}</span> step{{#if moveIsOne}}s{{/if}} forward</h4>
+				</div>
+
+				<div class="player-section">
+					{{#each players}}
+						{{> player}}
+					{{/each}}
+				</div>
+			</div>
+
+
+			<div class="separator">
+				<div class="winner {{#if hasWinner}}active{{/if}}">
+					<h4 class="step-wrapper">Congratulations to <strong>{{winner}}</strong> on winning the session!</h4>
+				</div>
+			</div>
+
+			<div class='map-container'>
+				<div class="map_row_1">
+					{{> map_row_one}}
+				</div>
+
+				<div class="map_row_2">
+					{{> map_row_two}}
+				</div>
+
+				<div class="map_row_3">
+					{{> map_row_three}}
+				</div>
+
+				<div class="map_row_4">
+					{{> map_row_four}}
+				</div>
+
+				<div class="map_row_5">
+					{{> map_row_five}}
+				</div>
+			</div>
+			
+
+		</div>
+			
+	</div>
+</body>
