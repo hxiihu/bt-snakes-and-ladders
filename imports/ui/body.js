@@ -44,7 +44,7 @@ for(i = 0; i < grids.length; i ++) {
 
 
 //ladders defined in terms of position on map
-var two_step_ladder = [3, 24, 39, 48, 51, 62, 95];
+var two_step_ladder = [3, 24, 39, 46, 51, 62, 95];
 var three_step_ladder = [9, 33, 67, 80, 91];
 var four_step_ladder = [37, 44, 57, 86];
 var giant_ladder = [7, 16, 27];
@@ -176,6 +176,7 @@ Template.body.events({
 		//var p_back = "p" + this._id.toString() + "Background";
 		//find current active user name
 		Session.set("who", this.name);
+		Session.set("moves", ran);
 
 		//console.log("p_back " + p_back);
 		//Session.set(p_back, this.background);
@@ -200,9 +201,14 @@ Template.body.events({
 			}
 
 			//possible to reach -1 score; handle negativity exception
-			if(s < 0) s = 0; // back to start point
+			if(s < 0) {
+				s = 0;
+			} // back to start point
 
 			//recursively check if step on any snake or ladder
+			console.log("grids[48].position = " + grids[48].position);
+			console.log("grids[48].value = " + grids[48].value);
+			console.log("before snake and ladder check: s = " + s.toString());
 			if (s !== 0) {
 				while(grids[s - 1].position !== grids[s - 1].value) {
 					s = grids[s - 1].value; // update final score as snake/ladder value
@@ -216,8 +222,11 @@ Template.body.events({
 						s --;
 						console.log("Identical score, minus 1 score for active player.");
 					}
+					if (s < 0) s = 0; // handle negative exception
 				}
 			}
+
+			console.log("after snake and ladder check: s = " + s.toString());
 
 
 			//update session array
@@ -228,7 +237,7 @@ Template.body.events({
 
 			//update score
 			Meteor.call('players.update', this._id, s);// s is new score
-			Session.set("moves", ran);
+			
 
 			//update a new attribute to grids[i]
 			//if s === 0?
