@@ -168,38 +168,63 @@ Template.body.events({
 
 		//generate a random score ranging from 1 - 6
 		var ran = Random.choice([1, 2, 3, 4, 5, 6]);
-		var s = 0;
+		//final score to be updated in database
+		var s = this.score + ran;//initial
 
-		var p_back = "p" + this._id.toString() + "Background";
+		console.log( this.name + " Rolled: " + ran.toString());
+
+		//var p_back = "p" + this._id.toString() + "Background";
+		//find current active user name
 		Session.set("who", this.name);
 
-		console.log("p_back " + p_back);
-		Session.set(p_back, this.background);
-		console.log(p_back+ " " + this.name + " " + this.background);
+		//console.log("p_back " + p_back);
+		//Session.set(p_back, this.background);
+		//console.log(p_back+ " " + this.name + " " + this.background);
 
-		//update score and turn off 'active'
 		//check if any winner 
-		if (this.score + ran < 100) {
+		if (this.score + ran < 100) { // no winner
 
 			//check if identical score exists
 			//if so, minus 1
 			scores = [Session.get("p1_score"), Session.get("p2_score"), Session.get("p3_score"), Session.get("p4_score")];
 			console.log("Before session update: " + scores);
-			s = grids[ this.score + ran - 1].value;
-			console.log(s);
-			console.log(scores.indexOf(s));//-1
-
-			//no identical scores
-			while (scores.indexOf(s) !== -1) s --;
 			
-			//nevativity exception
-			if(s < 0) s = 0;
+			//s = grids[ this.score + ran - 1].value; // initial score + rolled number
+			console.log( "Initial score + newly rolled dice: " + s.toString());
+			console.log(scores.indexOf(s));// return -1 if not contained in existing scores
+
+			//loop: active users -1 if got identical scores
+			while (scores.indexOf(s) !== -1) {
+				s --;
+				console.log("Identical score, minus 1 score for active player.");
+			}
+
+			//possible to reach -1 score; handle negativity exception
+			if(s < 0) s = 0; // back to start point
+
+			//recursively check if step on any snake or ladder
+			if (s !== 0) {
+				while(grids[s - 1].position !== grids[s - 1].value) {
+					s = grids[s - 1].value; // update final score as snake/ladder value
+					//msg on if stand on snae or ladder
+					console.log("Stand on Snake/Ladder");
+
+					//check if identica scores
+
+					scores = [Session.get("p1_score"), Session.get("p2_score"), Session.get("p3_score"), Session.get("p4_score")];
+					while (scores.indexOf(s) !== -1) {
+						s --;
+						console.log("Identical score, minus 1 score for active player.");
+					}
+				}
+			}
+
 
 			//update session array
 			Session.set( "p" + this._id.toString() + "_score" ,s);
 
 			scores = [Session.get("p1_score"), Session.get("p2_score"), Session.get("p3_score"), Session.get("p4_score")];
-			console.log("After session update: " + scores);
+			console.log("After session update: " + scores + "\n");
 
 			//update score
 			Meteor.call('players.update', this._id, s);// s is new score
@@ -207,18 +232,27 @@ Template.body.events({
 
 			//update a new attribute to grids[i]
 			//if s === 0?
-			if (s !== 0)
-				grids[s - 1].p_back = this.background;
+			//if (s !== 0)
+			//	grids[s - 1].p_back = this.background;
 
 			//turn on another user's 'active'
 			Meteor.call('players.update-active', this._id);
-		} else { //winner
 
+
+
+
+
+
+
+		} else { //has a winner
+			//set winner's name
 			Session.set("winner", this.name);
+			//update winner's status
 			Session.set("has-winner", true);
+			//update winner's score
 			Meteor.call('players.update', this._id, 100);
 
-			//de-active
+			//de-active all players
 			Meteor.call('players.update-deactive', this._id);
 		}
 
